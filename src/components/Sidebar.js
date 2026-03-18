@@ -1,7 +1,12 @@
-import React from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-  return (
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+  // Early return if the menu is closed
+  if (!isMenuOpen) return null;
+
+  return !isMenuOpen ? null : (
     <div className="col-span-1 p-5 shadow-md">
       <ul>
         <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
