@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { YOUTUBE_POPULAR_VIDEOS } from "../utils/constants";
 import VideoCard from "./VideoCard";
 import { useEffect, useState } from "react";
@@ -17,7 +18,11 @@ const VideoContainer = () => {
   return (
     <div className="flex flex-wrap">
       {videos.map((video) => {
-        return <VideoCard info={video} key={video?.id} />;
+        return (
+          <Link to={"/watch?v=" + video.id}>
+            <VideoCard info={video} key={video?.id} />
+          </Link>
+        );
       })}
     </div>
   );
