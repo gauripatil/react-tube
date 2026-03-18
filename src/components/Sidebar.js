@@ -7,7 +7,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return !isMenuOpen ? null : (
-    <div className="col-span-1 p-5 shadow-md">
+    <div className="col-span-1 p-5 shadow-md text-lg font-semibold cursor-pointer">
       <ul>
         <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
           <span>🏠</span>

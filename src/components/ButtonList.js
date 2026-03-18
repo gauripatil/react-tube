@@ -1,7 +1,30 @@
-import React from "react";
+import Button from "./Button";
+
+const list = [
+  "All",
+  "Live",
+  "Gaming",
+  "Music",
+  "News",
+  "Sports",
+  "Learning",
+  "Fashion",
+  "Comedy",
+  "Movies",
+  "Tech",
+  "Travel",
+  "Pets",
+  "Food",
+];
 
 const ButtonList = () => {
-  return <div>ButtonList</div>;
+  return (
+    <div className="flex  scroll-auto ">
+      {list.map((item) => {
+        return <Button key={item} name={item} />;
+      })}
+    </div>
+  );
 };
 
 export default ButtonList;

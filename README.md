@@ -23,6 +23,7 @@ ReactTube is a YouTube clone built using React. This application replicates the 
 
 - Install @reactjs/toolkit `npm install @reduxjs/toolkit`
 - Install react-redux `npm i react-redux`
+- Install react-router-dom
 
 # Features
 

@@ -1,5 +1,10 @@
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../stores/appSlice";
+import {
+  MENU_IMG_URL,
+  LOGO_IMG_URL,
+  USER_LOGO_URL,
+} from "./../utils/constants";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,16 +17,12 @@ const Header = () => {
     <div className="grid grid-flow-col p-5 m-2 shadow-md ">
       <div className="flex col-span-1">
         <img
-          src="https://www.svgrepo.com/show/524617/hamburger-menu.svg"
+          src={MENU_IMG_URL}
           alt="hamburger-menu"
           className="h-8 cursor-pointer"
           onClick={toggleMenuHandler}
         />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1280px-YouTube_Logo_2017.svg.png"
-          alt="youtube-logo"
-          className="h-8 ml-5"
-        />
+        <img src={LOGO_IMG_URL} alt="youtube-logo" className="h-8 ml-5" />
       </div>
       <div className="col-span-10">
         <input
@@ -34,11 +35,7 @@ const Header = () => {
         </button>
       </div>
       <div className="col-span-1">
-        <img
-          src="https://www.svgrepo.com/show/13656/user.svg"
-          alt="user"
-          className="h-8"
-        />
+        <img src={USER_LOGO_URL} alt="user" className="h-8" />
       </div>
     </div>
   );
