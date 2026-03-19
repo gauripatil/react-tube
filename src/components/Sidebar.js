@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -9,10 +10,13 @@ const Sidebar = () => {
   return !isMenuOpen ? null : (
     <div className="col-span-1 p-5 shadow-md text-lg font-semibold cursor-pointer">
       <ul>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>🏠</span>
-          <span> Home</span>
-        </li>
+        <Link to="/">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>🏠</span>
+            <span> Home</span>
+          </li>
+        </Link>
+
         <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
           <span>🎬</span> <span> Shorts</span>
         </li>

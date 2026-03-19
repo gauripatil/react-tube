@@ -5,6 +5,7 @@ import {
   LOGO_IMG_URL,
   USER_LOGO_URL,
 } from "./../utils/constants";
+import { Link } from "react-router";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Header = () => {
 
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-md ">
+      {/* <Link to="/"> */}
       <div className="flex col-span-1">
         <img
           src={MENU_IMG_URL}
@@ -22,8 +24,10 @@ const Header = () => {
           className="h-8 cursor-pointer"
           onClick={toggleMenuHandler}
         />
+
         <img src={LOGO_IMG_URL} alt="youtube-logo" className="h-8 ml-5" />
       </div>
+      {/* </Link> */}
       <div className="col-span-10">
         <input
           type="text"
