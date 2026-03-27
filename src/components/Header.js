@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../stores/appSlice";
 import { useState, useEffect } from "react";
 import {
@@ -7,16 +7,27 @@ import {
   USER_LOGO_URL,
   YOUTUBE_SEARCH_API,
 } from "./../utils/constants";
+import { cacheSuggestions } from "../stores/searchSlice";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const [suggestions, setsuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
+  const searchStore = useSelector((store) => store.search);
+
+  // After getting the data from API, set in the searchSlice
+  // Before making the api call check in the store for the searchQuery,
+  // if present read & return from store else make api call
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      getSuggestions();
+      // Check if searchQuery is present in the search store
+      if (searchStore[searchInput]) {
+        setShowSuggestions(searchStore[searchInput]);
+      } else {
+        getSuggestions();
+      }
     }, 500);
 
     return () => {
@@ -25,6 +36,7 @@ const Header = () => {
   }, [searchInput]);
 
   useEffect(() => {
+    dispatch(cacheSuggestions());
     const handleBodyClick = (event) => {
       if (
         !event.target.closest(".suggestions-dropdown") &&
@@ -55,6 +67,14 @@ const Header = () => {
     const suggestions = await data.json();
     console.log("search Result = ", suggestions[1]);
     setsuggestions(suggestions[1]);
+
+    // dispatch the action for setting the result in the search store
+    const storeObj = {
+      [searchInput]: suggestions[1],
+    };
+    console.log(storeObj);
+
+    dispatch(cacheSuggestions(storeObj));
   };
 
   const toggleMenuHandler = () => {
@@ -85,11 +105,11 @@ const Header = () => {
               setShowSuggestions(true);
             }}
             onFocus={() => {
-              console.log("onFocus");
+              // console.log("onFocus");
               setShowSuggestions(true);
             }}
             onBlur={() => {
-              console.log("onBlur");
+              // console.log("onBlur");
             }}
           />
           <button className=" border border-gray-400 rounded-r-full bg-gray-100 px-3 py-2">
