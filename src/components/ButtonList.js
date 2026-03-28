@@ -19,7 +19,7 @@ const list = [
 
 const ButtonList = () => {
   return (
-    <div className="flex  scroll-auto ">
+    <div className="flex  scroll-auto  pb-5">
       {list.map((item) => {
         return <Button key={item} name={item} />;
       })}

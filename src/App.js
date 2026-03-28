@@ -1,11 +1,17 @@
 import "./App.css";
+
+// Compoennts
 import Header from "./components/Header";
 import Body from "./components/Body";
+import WatchPage from "./components/WatchPage";
+import MainContainer from "./components/MainContainer";
+
+// Store
 import { Provider } from "react-redux";
 import store from "./stores/store";
-import WatchPage from "./components/WatchPage";
+
+// Routing
 import { createBrowserRouter, RouterProvider } from "react-router";
-import MainContainer from "./components/MainContainer";
 
 const appRouter = createBrowserRouter([
   {

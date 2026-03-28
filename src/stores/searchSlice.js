@@ -5,8 +5,10 @@ const searchSlice = createSlice({
   initialState: {},
   reducers: {
     cacheSuggestions: (state, action) => {
-      console.log(action);
-      console.log(state);
+      // @TODO: Implement LRU cache
+      // 1. For optimization purpose -
+      // 2. fast lookup
+      // 3. Auto eviction for old keys
       const newObj = Object.assign(state, action.payload);
       state = newObj;
     },

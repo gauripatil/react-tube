@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "./../stores/appSlice";
 import { YOUTUBE_VIDEO_DETAILS } from "./../utils/constants";
+import CommentsContainer from "./CommentsContainer";
 let isApiCallInProgress = false;
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -31,16 +32,20 @@ const WatchPage = () => {
 
   return (
     <div className="col-span-11 p-5 shadow-md">
-      <iframe
-        width="1050"
-        height="600"
-        src={"https://www.youtube.com/embed/" + videoId}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      ></iframe>
-      <h1 className="font-bold text-lg my-2">{videoData?.snippet?.title}</h1>
+      <div>
+        <iframe
+          width="1050"
+          height="600"
+          src={"https://www.youtube.com/embed/" + videoId}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+        <h1 className="font-bold text-lg my-2">{videoData?.snippet?.title}</h1>
+      </div>
+
+      <CommentsContainer />
     </div>
   );
 };
