@@ -16,11 +16,13 @@ export const YOUTUBE_VIDEO_DETAILS =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=" +
   GOOGLE_API_KEY;
 
-export const YT_API =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyCIg_YzlsrDzYtIu3jXZaEk8jC8LWMLW80";
-
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+export const YOUTUBE_SEARCH_VIDEOS_API =
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&maxResults=50&key=" +
+  GOOGLE_API_KEY +
+  "&q=";
 
 /**
    * const GOOGLE_API_KEY = "AIzaSyAtIibgU4boIyzkgbabBCe8BJJsBSfNlWA";

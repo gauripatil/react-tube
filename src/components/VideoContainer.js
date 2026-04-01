@@ -2,9 +2,12 @@ import { Link } from "react-router";
 import { YOUTUBE_POPULAR_VIDEOS } from "../utils/constants";
 import VideoCard, { AdVideoCard } from "./VideoCard";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
+  const { searchResults, isSearching } = useSelector((store) => store.search);
+
   useEffect(() => {
     async function getData() {
       console.log("useEffect called");
@@ -15,17 +18,31 @@ const VideoContainer = () => {
     getData();
   }, []);
 
+  const displayVideos = searchResults.length > 0 ? searchResults : videos;
+
   return (
     <div className="flex flex-wrap">
-      {videos[0] && (
-        <Link to={"/watch?v=" + videos[0].id}>
-          <AdVideoCard info={videos[0]}></AdVideoCard>
-        </Link>
+      {isSearching && (
+        <div className="w-full h-full text-center text-lg font-bold">
+          Searching...
+        </div>
       )}
-      {videos.map((video) => {
+      {/* {displayVideos[0] && (
+        <Link
+          to={
+            "/watch?v=" + (displayVideos[0].id.videoId || displayVideos[0].id)
+          }
+        >
+          <AdVideoCard info={displayVideos[0]}></AdVideoCard>
+        </Link>
+      )} */}
+      {displayVideos.map((video) => {
         return (
-          <Link to={"/watch?v=" + video.id}>
-            <VideoCard info={video} key={video?.id} />
+          <Link
+            to={"/watch?v=" + (video.id.videoId || video.id)}
+            key={video.id.videoId || video.id}
+          >
+            <VideoCard info={video} />
           </Link>
         );
       })}

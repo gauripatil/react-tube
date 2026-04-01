@@ -6,8 +6,14 @@ import {
   LOGO_IMG_URL,
   USER_LOGO_URL,
   YOUTUBE_SEARCH_API,
+  YOUTUBE_SEARCH_VIDEOS_API,
 } from "./../utils/constants";
-import { cacheSuggestions } from "../stores/searchSlice";
+import {
+  cacheSuggestions,
+  setSearchResults,
+  setSearching,
+  clearSearchResults,
+} from "../stores/searchSlice";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -81,6 +87,20 @@ const Header = () => {
     dispatch(toggleMenu());
   };
 
+  const handleSearch = async () => {
+    if (!searchInput.trim()) return;
+    dispatch(setSearching(true));
+    try {
+      const url = YOUTUBE_SEARCH_VIDEOS_API + encodeURIComponent(searchInput);
+      const data = await fetch(url);
+      const json = await data.json();
+      dispatch(setSearchResults(json.items || []));
+    } catch (error) {
+      console.error("Search failed:", error);
+      dispatch(setSearchResults([]));
+    }
+  };
+
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-md ">
       <div className="flex col-span-1">
@@ -101,8 +121,12 @@ const Header = () => {
             className="w-1/2 border border-gray-400 p-2 rounded-l-full"
             value={searchInput}
             onChange={(e) => {
-              setSearchInput(e.target.value);
+              const value = e.target.value;
+              setSearchInput(value);
               setShowSuggestions(true);
+              if (value.trim() === "") {
+                dispatch(clearSearchResults());
+              }
             }}
             onFocus={() => {
               // console.log("onFocus");
@@ -111,8 +135,16 @@ const Header = () => {
             onBlur={() => {
               // console.log("onBlur");
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
           />
-          <button className=" border border-gray-400 rounded-r-full bg-gray-100 px-3 py-2">
+          <button
+            className=" border border-gray-400 rounded-r-full bg-gray-100 px-3 py-2"
+            onClick={handleSearch}
+          >
             🔍
           </button>
         </div>

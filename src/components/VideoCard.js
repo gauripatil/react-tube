@@ -7,9 +7,10 @@ const VideoCard = ({ info }) => {
       <ul className="py-2">
         <li className="font-bold">{title}</li>
         <li className="text-md my-1">{channelTitle}</li>
-        <li className="text-sm">
-          {statistics?.viewCount.toLocaleString("en-US")} views
-        </li>
+
+        {statistics?.viewCount && (
+          <li className="text-sm">{statistics?.viewCount} views</li>
+        )}
       </ul>
     </div>
   );
