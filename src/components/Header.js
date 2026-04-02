@@ -111,7 +111,9 @@ const Header = () => {
           onClick={toggleMenuHandler}
         />
 
-        <img src={LOGO_IMG_URL} alt="youtube-logo" className="h-8 ml-5" />
+        <a href="/">
+          <img src={LOGO_IMG_URL} alt="youtube-logo" className="h-8 ml-5" />
+        </a>
       </div>
       <div className="col-span-10 px-10">
         <div>

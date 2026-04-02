@@ -24,6 +24,7 @@ export const YOUTUBE_SEARCH_VIDEOS_API =
   GOOGLE_API_KEY +
   "&q=";
 
+export const LIVE_CHAT_COUNT = 25;
 /**
    * const GOOGLE_API_KEY = "AIzaSyAtIibgU4boIyzkgbabBCe8BJJsBSfNlWA";
 
