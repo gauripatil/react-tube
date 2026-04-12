@@ -142,3 +142,15 @@ export const isVerticalOrSquare = (thumbnails) => {
   if (!width || !height) return false;
   return height >= width; // vertical or square
 };
+
+export const formatViewCount = (viewCount) => {
+  if (viewCount >= 1e9) {
+    return (viewCount / 1e9).toFixed(1) + "B views";
+  } else if (viewCount >= 1e6) {
+    return (viewCount / 1e6).toFixed(1) + "M views";
+  } else if (viewCount >= 1e3) {
+    return (viewCount / 1e3).toFixed(1) + "K views";
+  } else {
+    return viewCount + " views";
+  }
+};

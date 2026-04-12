@@ -1,4 +1,4 @@
-import { parseISO8601Duration } from "../utils/helper";
+import { parseISO8601Duration, formatViewCount } from "../utils/helper";
 const VideoCard = ({ info }) => {
   const { snippet, statistics, contentDetails } = info;
   const { channelTitle, title, thumbnails } = snippet;
@@ -15,10 +15,12 @@ const VideoCard = ({ info }) => {
       </div>
       <ul className="py-2">
         <li className="font-bold">{title}</li>
-        <li className="text-md my-2">{channelTitle}</li>
+        <li className="text-md my-1.5  text-gray-500">{channelTitle}</li>
 
         {statistics?.viewCount && (
-          <li className="text-sm">{statistics?.viewCount} views</li>
+          <li className="text-sm pb-1   text-gray-500">
+            {formatViewCount(statistics?.viewCount)}
+          </li>
         )}
       </ul>
     </div>
