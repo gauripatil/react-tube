@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { parseISO8601Duration, isVerticalOrSquare } from "../utils/helper";
 
 const searchSlice = createSlice({
   name: "searchSlice",
   initialState: {
     suggestions: {},
     searchResults: [],
+    shortsResults: [],
     isSearching: false,
   },
   reducers: {
@@ -19,6 +21,18 @@ const searchSlice = createSlice({
     setSearchResults: (state, action) => {
       state.searchResults = action.payload;
       state.isSearching = false;
+
+      // set shorts results by filtering the search results
+      state.shortsResults = action.payload.filter((video) => {
+        console.log("Filtering shorts results for video: ", video);
+        const duration = video.contentDetails?.duration;
+        if (!duration) return false;
+        const durationInSeconds = parseISO8601Duration(duration);
+        // const isShortsDimension = isVerticalOrSquare(video.snippet?.thumbnails);
+        return durationInSeconds < 180; // Shorts are typically less than 180 seconds long
+      });
+
+      console.log("Shorts results: ", state.shortsResults);
     },
     setSearching: (state, action) => {
       state.isSearching = action.payload;

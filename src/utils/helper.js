@@ -101,3 +101,44 @@ export const generateRandomMessage = () => {
   const randomIndex = Math.floor(Math.random() * messages.length);
   return messages[randomIndex];
 };
+
+export const parseISO8601Duration = (iso, isTimestamp = false) => {
+  // returns duration in seconds (simple parser)
+  if (!iso) return 0;
+  const m = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  //   console.log("Parsing duration:", iso, "=>", m);
+  if (!m) return 0;
+  const hours = parseInt(m[1] || "0", 10);
+  const minutes = parseInt(m[2] || "0", 10);
+  const seconds = parseInt(m[3] || "0", 10);
+  const res = hours * 3600 + minutes * 60 + seconds;
+  return isTimestamp ? formatDuration(res) : res;
+};
+
+export const formatDuration = (seconds) => {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  if (h > 0) {
+    return `${h}:${m.toString().padStart(2, "0")}:${s
+      .toString()
+      .padStart(2, "0")}`;
+  } else {
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  }
+};
+
+export const isVerticalOrSquare = (thumbnails) => {
+  // choose the highest-resolution thumbnail available
+  const thumb =
+    thumbnails?.maxres ||
+    thumbnails?.standard ||
+    thumbnails?.high ||
+    thumbnails?.medium ||
+    thumbnails?.default;
+  if (!thumb) return false;
+  const width = thumb.width || 0;
+  const height = thumb.height || 0;
+  if (!width || !height) return false;
+  return height >= width; // vertical or square
+};

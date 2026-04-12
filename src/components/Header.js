@@ -112,15 +112,19 @@ const Header = () => {
         />
 
         <a href="/">
-          <img src={LOGO_IMG_URL} alt="youtube-logo" className="h-8 ml-5" />
+          <img
+            src="../youtube-logo.png"
+            alt="youtube-logo"
+            className="h-8 ml-5"
+          />
         </a>
       </div>
-      <div className="col-span-10 px-10">
+      <div className="col-span-10 px-10 text-center">
         <div>
           <input
             type="text"
             placeholder="Search..."
-            className="w-1/2 border border-gray-400 p-2 rounded-l-full"
+            className="w-[60%] border border-gray-400 p-2 rounded-l-full"
             value={searchInput}
             onChange={(e) => {
               const value = e.target.value;

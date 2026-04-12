@@ -8,7 +8,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return !isMenuOpen ? null : (
-    <div className="col-span-1 p-5 shadow-md text-lg font-semibold cursor-pointer">
+    <div className="col-span-1 p-5 shadow-md text-base font-medium cursor-pointer">
       <ul>
         <Link to="/">
           <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
@@ -17,9 +17,12 @@ const Sidebar = () => {
           </li>
         </Link>
 
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>🎬</span> <span> Shorts</span>
-        </li>
+        <Link to="/shorts">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>🎬</span> <span> Shorts</span>
+          </li>
+        </Link>
+
         <br></br>
         <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
           <span>🔥</span> <span> Trending</span>

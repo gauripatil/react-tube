@@ -2,18 +2,20 @@ import { Link } from "react-router";
 import { YOUTUBE_POPULAR_VIDEOS } from "../utils/constants";
 import VideoCard, { AdVideoCard } from "./VideoCard";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setSearchResults } from "../stores/searchSlice";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   const { searchResults, isSearching } = useSelector((store) => store.search);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getData() {
-      console.log("useEffect called");
       const data = await fetch(YOUTUBE_POPULAR_VIDEOS);
       const youtube_data = await data.json();
       setVideos(youtube_data.items);
+      dispatch(setSearchResults(youtube_data.items));
     }
     getData();
   }, []);

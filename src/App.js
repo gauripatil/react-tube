@@ -12,6 +12,7 @@ import store from "./stores/store";
 
 // Routing
 import { createBrowserRouter, RouterProvider } from "react-router";
+import ShortsContainer from "./components/ShortsContainer";
 
 const appRouter = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const appRouter = createBrowserRouter([
       {
         path: "watch",
         element: <WatchPage />,
+      },
+      {
+        path: "/shorts",
+        element: <ShortsContainer />,
       },
     ],
   },
