@@ -29,6 +29,8 @@ const searchSlice = createSlice({
         if (!duration) return false;
         const durationInSeconds = parseISO8601Duration(duration);
         const isShortsDimension = isVerticalOrSquare(video.snippet?.thumbnails);
+        console.log(isShortsDimension, "isShortsDimension");
+        console.log(durationInSeconds, "durationInSeconds");
         return durationInSeconds < 180; // Shorts are typically less than 180 seconds long
       });
 
