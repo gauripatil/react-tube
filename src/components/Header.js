@@ -3,7 +3,6 @@ import { toggleMenu } from "../stores/appSlice";
 import { useState, useEffect } from "react";
 import {
   MENU_IMG_URL,
-  LOGO_IMG_URL,
   USER_LOGO_URL,
   YOUTUBE_SEARCH_API,
   YOUTUBE_SEARCH_VIDEOS_API,

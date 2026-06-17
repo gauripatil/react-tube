@@ -6,7 +6,7 @@ const Comment = ({ comment }) => {
     <div className="m-4 p-4 flex  border-gray-50 bg-stone-50 border-b-2 shadow-md">
       <img
         src="https://www.svgrepo.com/show/13656/user.svg"
-        className="w-9 h-9"
+        className="w-9 h-9" alt="user-logo"
       />
       <div className="px-3">
         <h3 className="font-bold text-lg ">{name}</h3>

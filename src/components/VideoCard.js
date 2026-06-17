@@ -5,7 +5,7 @@ const VideoCard = ({ info }) => {
   return (
     <div className="w-72 shadow-lg p-2 m-1 rounded-md h-[21rem] hover:shadow-xl hover:cursor-pointer hover:bg-gray-50">
       <div className="relative inline-block w-full">
-        <img src={thumbnails?.medium?.url} className="rounded-lg w-full" />
+        <img src={thumbnails?.medium?.url} alt={title} className="rounded-lg w-full" />
         {contentDetails?.duration && (
           <span className="absolute bg-black text-white rounded text-sm font-semibold px-1.5 py-0.5 right-2 bottom-2  bg-opacity-75">
             {contentDetails?.duration &&

@@ -28,7 +28,7 @@ const searchSlice = createSlice({
         const duration = video.contentDetails?.duration;
         if (!duration) return false;
         const durationInSeconds = parseISO8601Duration(duration);
-        // const isShortsDimension = isVerticalOrSquare(video.snippet?.thumbnails);
+        const isShortsDimension = isVerticalOrSquare(video.snippet?.thumbnails);
         return durationInSeconds < 180; // Shorts are typically less than 180 seconds long
       });
 
