@@ -119,7 +119,7 @@ const Header = () => {
           />
         </a>
       </div>
-      <div className="col-span-10 px-10 text-center">
+      <div className="col-span-10 px-10">
         <div>
           <input
             type="text"
@@ -155,7 +155,7 @@ const Header = () => {
           </button>
         </div>
         {showSuggestions && suggestions?.length > 0 && (
-          <div className="fixed ml-2 bg-white border border-gray-200 w-[29rem] px-4 py-2 shadow-md rounded-md suggestions-dropdown">
+          <div className="fixed ml-2 z-10 bg-white border border-gray-200 w-[29rem] px-4 py-2 shadow-md rounded-md suggestions-dropdown">
             <ul>
               {suggestions.map((item) => {
                 return (
