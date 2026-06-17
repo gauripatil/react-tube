@@ -38,7 +38,27 @@ const Header = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [searchInput]);
+    
+    
+    const getSuggestions = async () => {
+      const url = YOUTUBE_SEARCH_API + searchInput;
+      console.log(url);
+
+      const data = await fetch(url);
+      const suggestions = await data.json();
+      console.log("search Result = ", suggestions[1]);
+      setsuggestions(suggestions[1]);
+
+      // dispatch the action for setting the result in the search store
+      const storeObj = {
+        [searchInput]: suggestions[1],
+      };
+      console.log(storeObj);
+
+      dispatch(cacheSuggestions(storeObj));
+    };
+    
+  }, [searchInput, dispatch, searchStore]);
 
   useEffect(() => {
     dispatch(cacheSuggestions());
@@ -64,23 +84,7 @@ const Header = () => {
     };
   }, []);
 
-  const getSuggestions = async () => {
-    const url = YOUTUBE_SEARCH_API + searchInput;
-    console.log(url);
-
-    const data = await fetch(url);
-    const suggestions = await data.json();
-    console.log("search Result = ", suggestions[1]);
-    setsuggestions(suggestions[1]);
-
-    // dispatch the action for setting the result in the search store
-    const storeObj = {
-      [searchInput]: suggestions[1],
-    };
-    console.log(storeObj);
-
-    dispatch(cacheSuggestions(storeObj));
-  };
+  
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
