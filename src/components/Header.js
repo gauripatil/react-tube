@@ -38,27 +38,8 @@ const Header = () => {
     return () => {
       clearTimeout(timer);
     };
-    
-    
-    const getSuggestions = async () => {
-      const url = YOUTUBE_SEARCH_API + searchInput;
-      console.log(url);
-
-      const data = await fetch(url);
-      const suggestions = await data.json();
-      console.log("search Result = ", suggestions[1]);
-      setsuggestions(suggestions[1]);
-
-      // dispatch the action for setting the result in the search store
-      const storeObj = {
-        [searchInput]: suggestions[1],
-      };
-      console.log(storeObj);
-
-      dispatch(cacheSuggestions(storeObj));
-    };
-    
-  }, [searchInput, dispatch, searchStore]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput]);
 
   useEffect(() => {
     dispatch(cacheSuggestions());
@@ -82,9 +63,26 @@ const Header = () => {
       document.body.removeEventListener("click", handleBodyClick);
       window.removeEventListener("scroll", handleScroll);
     };
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
+  const getSuggestions = async () => {
+    const url = YOUTUBE_SEARCH_API + searchInput;
+    console.log(url);
+
+    const data = await fetch(url);
+    const suggestions = await data.json();
+    console.log("search Result = ", suggestions[1]);
+    setsuggestions(suggestions[1]);
+
+    // dispatch the action for setting the result in the search store
+    const storeObj = {
+      [searchInput]: suggestions[1],
+    };
+    console.log(storeObj);
+
+    dispatch(cacheSuggestions(storeObj));
+  };
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
