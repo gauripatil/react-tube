@@ -18,6 +18,7 @@ const VideoContainer = () => {
       dispatch(setSearchResults(youtube_data.items));
     }
     getData();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const displayVideos = searchResults.length > 0 ? searchResults : videos;

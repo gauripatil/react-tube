@@ -20,6 +20,7 @@ const WatchPage = () => {
       getData();
     }
     // if (!videoId) return;
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   async function getData() {
