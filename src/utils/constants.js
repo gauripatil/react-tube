@@ -13,8 +13,9 @@ export const YOUTUBE_POPULAR_VIDEOS2 =
   " https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
   GOOGLE_API_KEY;
 
-export const YOUTUBE_POPULAR_VIDEOS =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY";
+export const YOUTUBE_POPULAR_VIDEOS = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&videoCategoryId=28&regionCode=US&maxResults=50&key=AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY";
+   
+
 
 export const YOUTUBE_VIDEO_DETAILS =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=" +
@@ -24,7 +25,7 @@ export const YOUTUBE_SEARCH_API =
   "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 export const YOUTUBE_SEARCH_VIDEOS_API =
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&maxResults=50&key=" +
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet,contentDetails&chart=mostPopular&maxResults=50&key=" +
   GOOGLE_API_KEY +
   "&q=";
 
@@ -45,4 +46,19 @@ export const LIVE_CHAT_COUNT = 25;
 export const YOUTUBE_VIDEOS_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
   GOOGLE_API_KEY;
+
+
+
+  Tech Category : "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&videoCategoryId=28&regionCode=IN&maxResults=50&key=AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY"
+  Most Trending : "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY";
+
+  
+  ID  Category Name
+  28  Science & Technology
+  20  Gaming
+  10  Music
+  17  Sports
+  24  Entertainment
+  25  News & Politics
+  27  Education
    */

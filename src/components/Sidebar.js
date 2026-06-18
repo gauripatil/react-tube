@@ -24,34 +24,54 @@ const Sidebar = () => {
         </Link>
 
         <br></br>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>🔥</span> <span> Trending</span>
-        </li>
-        <li className="flex items-center space-x-4   p-2 hover:bg-gray-100">
-          <span>🎵</span> <span> Music</span>
-        </li>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>🎬</span> <span> Movies</span>
-        </li>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>🏀</span> <span> Sports</span>
-        </li>
+        <Link to="/trending">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>🔥</span> <span> Trending</span>
+          </li>
+        </Link>
+        
+        <Link to="/music">
+          <li className="flex items-center space-x-4   p-2 hover:bg-gray-100">
+            <span>🎵</span> <span> Music</span>
+          </li>
+        </Link>
+
+        <Link to="/movies">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>🎬</span> <span> Movies</span>
+          </li>
+        </Link>
+        <Link to="/sports">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>🏀</span> <span> Sports</span>
+          </li>
+        </Link>
         <br></br>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>📺</span> <span> Subscriptions</span>
-        </li>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>📚</span> <span> Library</span>
-        </li>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>🕒</span> <span> History</span>
-        </li>
-        <li className="flex items-center space-x-4   p-2 hover:bg-gray-100">
-          <span>⏳</span> <span> Watch Later</span>
-        </li>
-        <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
-          <span>❤️</span> <span> Liked Videos</span>
-        </li>
+        <Link to="/subscriptions">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>📺</span> <span> Subscriptions</span>
+          </li>
+        </Link>
+        <Link to="/library">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>📚</span> <span> Library</span>
+          </li>
+        </Link>
+        <Link to="/history">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>🕒</span> <span> History</span>
+          </li>
+        </Link>
+        <Link to="/watch-later">
+          <li className="flex items-center space-x-4   p-2 hover:bg-gray-100">
+            <span>⏳</span> <span> Watch Later</span>
+          </li>
+        </Link>
+        <Link to="/liked-videos">
+          <li className="flex items-center space-x-4 p-2 hover:bg-gray-100">
+            <span>❤️</span> <span> Liked Videos</span>
+          </li>
+        </Link>
       </ul>
     </div>
   );
