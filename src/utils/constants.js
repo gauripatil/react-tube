@@ -9,11 +9,11 @@ export const USER_LOGO_URL = "https://www.svgrepo.com/show/13656/user.svg";
 // export const GOOGLE_API_KEY = "AIzaSyDYDj8HiIJtcwepyJBESow6i0F_-qoWex0";
 export const GOOGLE_API_KEY = "AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY";
 
-export const YOUTUBE_POPULAR_VIDEOS2 =
-  " https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
+export const YOUTUBE_POPULAR_VIDEOS =
+  " https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=" +
   GOOGLE_API_KEY;
 
-export const YOUTUBE_POPULAR_VIDEOS = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&videoCategoryId=28&regionCode=US&maxResults=50&key=AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY";
+export const YOUTUBE_POPULAR_VIDEOS_2 = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&videoCategoryId=28&regionCode=US&maxResults=50&key=AIzaSyANuSp8rf3Ba7DJW72OUsA6q7SpVkew2hY";
    
 
 
